@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>b站动图示例</title>
+  </head>
+  <body>
+    <div class="gif" style="height:225px;width:400px">
+
+    </div>
+    <script type="text/javascript">
+    let gifcontainer=document.getElementsByClassName("gif")[0];
+    console.dir(gifcontainer);
+    // let x=0,y=0;
+    var position={
+      x:0,
+      y:0
+    }
+    function change(target,position){
+      target.style.background='url("bg.jpg")'+position.x*400+"px "+position.y*225+"px";
+      if(position.x<=-12) position.x = 0;
+      position.y = Math.round(position.x/3)
+      position.x=position.x-1
+    }
+    // change(gifcontainer,position)
+    setInterval(function(){
+      console.log(position);
+      change(gifcontainer,position)
+    },200)
+
+    </script>
+  </body>
+</html>
